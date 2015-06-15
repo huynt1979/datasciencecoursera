@@ -12,7 +12,7 @@ pollutantmean <- function(directory, pollutant = 'sulfate', id = 1:332) {
   data <- data.frame()
   
   for (i in id) {
-    fname <- paste(d, sprintf("%03d.csv", i), sep="/")
+    fname <- paste(directory, sprintf("%03d.csv", i), sep="/")
     data <- rbind(data, read.csv(fname, header = TRUE))
   }
    

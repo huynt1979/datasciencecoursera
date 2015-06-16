@@ -6,14 +6,13 @@ corr <- function(directory, threshold = 0) {
     0
   } else {
   
-    data <- data.frame()
+    result <- NULL
     for (i in ct$id) {
       di <- read.csv(paste(directory, sprintf("%03d.csv", i), sep="/"))
       cdi <- di[complete.cases(di), ]
-      data <- rbind(data, cdi)
+      result <- c(result, round(cor(cdi[, c("sulfate")], cdi[, c("nitrate")]), digits = 5))
     }
-    
-    #data[, c("sulfate", "nitrate")]
-    cor(data[, c("nitrate")], data[, c("sulfate")])
+
+    result
   }
 }

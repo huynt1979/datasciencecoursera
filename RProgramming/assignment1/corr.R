@@ -10,7 +10,7 @@ corr <- function(directory, threshold = 0) {
     for (i in ct$id) {
       di <- read.csv(paste(directory, sprintf("%03d.csv", i), sep="/"))
       cdi <- di[complete.cases(di), ]
-      result <- c(result, round(cor(cdi[, c("sulfate")], cdi[, c("nitrate")]), digits = 5))
+      result <- c(result, cor(cdi[, c("sulfate")], cdi[, c("nitrate")]))
     }
 
     result

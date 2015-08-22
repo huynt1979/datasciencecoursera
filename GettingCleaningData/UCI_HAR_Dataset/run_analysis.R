@@ -1,7 +1,26 @@
 library(plyr)
 
-#dataDir <- ''
-#setwd(dataDir)
+checkFile <- function(fname) {
+  if (!file.exists(fname))
+    quit(save = "no", 0)
+}
+
+dataDir <- readline("Please enter path to data directory: ")
+print(dataDir)
+
+if (!dir.exists(dataDir)) {
+  cat(dataDir, ' doesn\'t exist. Terminated!!!')
+  quit(save = "no", 1)
+}
+setwd(dataDir)
+checkFile('features.txt')
+checkFile('activity_labels.txt')
+checkFile('train/subject_train.txt')
+checkFile('train/X_train.txt')
+checkFile('train/y_train.txt')
+checkFile('test/X_test.txt')
+checkFile('test/y_test.txt')
+
 
 # Read features
 features <- read.table('features.txt', header = FALSE)

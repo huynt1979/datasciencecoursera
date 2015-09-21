@@ -14,3 +14,4 @@ To run the course project code, issue the following command:
 ```bash
 Rscript run_analysis.R
 ```
+The script will interactively ask for the absolute path to directory the course project data is extracted. Once a correct path is entered, it will execute the code and produce the output.txt file. Otherwise, error is thrown and program terminates.
